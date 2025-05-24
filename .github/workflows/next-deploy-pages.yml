@@ -70,7 +70,8 @@ jobs:
           path: ./out
 
   # Deployment job
-  Deploy to Github Pages:
+  deploy_to_github_pages:
+    name: Deploy to Github-Pages
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

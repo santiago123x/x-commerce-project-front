@@ -1,0 +1,92 @@
+name: Next.js Test, Merge and Release
+
+on:
+  push:
+    branches: [ "stage" ]
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  test-and-release:
+    name: Run Tests and Create Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Lint
+        run: npm run lint
+
+      # Agrega pruebas aquí si existen
+      # - name: Run Tests
+      #   run: npm test
+
+      - name: Build
+        run: npm run build
+
+      - name: Zip Build
+        run: zip -r next-build.zip .next out public package.json
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: next-build
+          path: next-build.zip
+
+      - name: Generate Tag
+        id: tagger
+        uses: anothrNick/github-tag-action@1.61.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          release_branches: stage
+          with_v: true
+          default_bump: patch
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.tagger.outputs.new_tag }}
+          release_name: Release ${{ steps.tagger.outputs.new_tag }}
+          body: Build for ${{ steps.tagger.outputs.new_tag }}
+
+      - name: Upload to Release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: next-build.zip
+          asset_name: next-build.zip
+          asset_content_type: application/zip
+
+  merge-to-main:
+    name: Merge Stage to Main
+    needs: test-and-release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Merge Branches
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          head_to_merge: stage
+          target_branch: main
+          github_token: ${{ secrets.GITHUB_TOKEN }}

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { prefix } from "@components/basePath";
+import { prefix } from "@/components/basePath";
 
 export default function Home() {
   return (

@@ -1,0 +1,52 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #121212;
+}
+
+.container h1 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.categorySelector {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.categoryButton {
+  padding: 0.3rem 1rem;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.categoryButton:hover {
+  background: #f5f5f5;
+}
+
+.categoryButton.active {
+  background: #ffd814;
+  color: #121212;
+  border-color: #ffd814;
+}
+
+.cardGrid {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
+}

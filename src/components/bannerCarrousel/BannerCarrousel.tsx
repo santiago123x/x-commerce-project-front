@@ -16,24 +16,6 @@ interface BannerSlide {
 const BannerCarrousel: React.FC = () => {
     const swiperWrappedRef = useRef<HTMLElement | null>(null);
 
-    // function adjustMargin() {
-    //     const screenWidth = window.innerWidth;
-    //     if (swiperWrappedRef.current) {
-    //         swiperWrappedRef.current.style.marginLeft = screenWidth <= 520
-    //             ? "0px"
-    //             : screenWidth <= 650
-    //                 ? "-50px"
-    //                 : screenWidth <= 800
-    //                     ? "-100px"
-    //                     : "-150px";
-    //     }
-    // }
-
-    // useEffect(() => {
-    //     adjustMargin();
-    //     window.addEventListener("resize", adjustMargin);
-    // }, []);
-
     return (
         <Swiper
             modules={[Pagination, Autoplay]}

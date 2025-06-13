@@ -8,6 +8,7 @@ const Card: React.FC<CardProps> = ({
   price,
   bought,
   review,
+  specialStyle,
 }) => {
   const money_symbol: string = "US$";
 
@@ -16,7 +17,7 @@ const Card: React.FC<CardProps> = ({
   };
 
   return (
-    <div className={styles.card_container}>
+    <div className={`${styles.card_container} ${specialStyle ? styles.card_max_width : ''}`}>
       <div className={styles.container_image}>
         <img
           alt={`${description.slice(0, 10)}${

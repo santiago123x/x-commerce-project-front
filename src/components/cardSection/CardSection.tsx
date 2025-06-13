@@ -16,6 +16,10 @@ const CardSection = () => {
     setDisplayProducts(shuffled.slice(0, 3));
   }, [currentCategory]);
 
+  const checkCardWidth = (array: CardProps[], index: number): boolean => {
+    return index === 2 && array.length === 3 ? true : false;
+  };
+  
   return (
     <div className={styles.container}>
       <h1>Lo más vendido en:</h1>
@@ -36,7 +40,7 @@ const CardSection = () => {
 
       <section className={styles.cardGrid}>
         {displayProducts.map((product, index) => (
-          <Card key={index} {...product} />
+          <Card key={index} {...product} specialStyle={checkCardWidth(displayProducts, index)} />
         ))}
       </section>
     </div>

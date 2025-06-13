@@ -5,6 +5,7 @@ interface CardProps {
     bought: number;
     review: number;
     category?: string;
+    specialStyle?: boolean;
   }
 
 

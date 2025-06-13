@@ -3,12 +3,12 @@
     flex-direction: column;
     background-color: #f9f9f9;
     color: #121212;
-    width: 300px;
+    width: 370px;
     padding: 16px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     height: auto;
-    min-height: 350px;
+    min-height: 450px;
     gap: 12px;
   }
   

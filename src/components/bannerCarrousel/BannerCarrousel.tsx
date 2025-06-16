@@ -5,13 +5,8 @@ import 'swiper/css';
 import { Autoplay, Pagination } from "swiper/modules";
 import 'swiper/css/pagination';
 import style from './bannerCarrousel.module.css';
+import { BannerSlide } from "@/types/interfaces";
 
-interface BannerSlide {
-    imgSrc: string;
-    title: string;
-    description: string;
-    categories: string[];
-}
 
 const BannerCarrousel: React.FC = () => {
     const swiperWrappedRef = useRef<HTMLElement | null>(null);

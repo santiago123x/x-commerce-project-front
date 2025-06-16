@@ -1,6 +1,6 @@
 import React, {useRef } from "react";
 import { bannerSlides } from "@/data/bannerSlides";
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { Autoplay, Pagination } from "swiper/modules";
 import 'swiper/css/pagination';
@@ -35,7 +35,7 @@ const BannerCarrousel: React.FC = () => {
                 650: { spaceBetween: 30 },
                 1000: { spaceBetween: 20 },
             }}
-            onSwiper={(swiper) => {
+            onSwiper={(swiper: SwiperClass) => {
                 swiperWrappedRef.current = swiper.wrapperEl;
             }}
         >

@@ -1,10 +1,4 @@
-
-interface BannerSlide {
-    imgSrc: string;
-    title: string;
-    description: string;
-    categories: string[];
-}
+import { BannerSlide } from "@/types/interfaces";
 
 export const bannerSlides: BannerSlide[] = [
     {

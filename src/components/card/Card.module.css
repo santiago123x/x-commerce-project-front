@@ -81,3 +81,14 @@
     font-size: 12px;
     color: #666;
   }
+
+  .card_max_width{
+    grid-column: auto;
+  }
+  
+
+  @media (min-width: 880px) and (max-width: 1320px) {
+    .card_max_width {
+      grid-column: 1/3;
+    }
+  }

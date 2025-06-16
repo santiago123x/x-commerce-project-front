@@ -12,7 +12,6 @@ const Home = () => {
       <HeaderSection />
       <CardSection />
       <BannerCarrousel />
-      <FooterSection/>
     </div>
   );
 };

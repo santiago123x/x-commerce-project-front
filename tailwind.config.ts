@@ -1,3 +1,4 @@
+import { Urbanist } from "next/font/google";
 import type { Config } from "tailwindcss";
 
 export default {
@@ -12,6 +13,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        urbanist: ['Urbanist', 'sans-serif'],
+      }
     },
   },
   plugins: [],

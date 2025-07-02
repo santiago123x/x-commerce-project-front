@@ -1,13 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@theme {
-  --breakpoint-*: initial;
-  --breakpoint-sm: 480px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 976px;
-
-}
 /* 
 :root {
   --background: #ffffff;

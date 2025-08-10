@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import { CartItemProps } from "@/types/types";
 import { useAppDispatch } from "@/lib/hooks";
 import {
@@ -19,12 +20,14 @@ const CartItem: React.FC<CartItemProps> = ({
   return (
     <div className="mb-4 flex flex-col items-stretch rounded-lg border bg-white p-4 shadow md:flex-row">
       <div className="mb-4 flex w-full flex-shrink-0 flex-col items-center justify-center md:mb-0 md:w-28">
-        <div className="flex h-24 w-24 items-center justify-center rounded bg-gray-200">
+        <div className="relative h-24 w-24 flex items-center justify-center rounded bg-gray-200 overflow-hidden">
           {image ? (
-            <img
+            <Image
               src={image}
               alt={name}
-              className="h-full w-full rounded object-cover"
+              fill
+              className="object-cover rounded"
+              sizes="96px"
             />
           ) : (
             <span className="text-gray-400">Imagen</span>

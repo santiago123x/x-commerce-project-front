@@ -5,6 +5,8 @@ import FooterSection from "@/components/footer/FooterSection";
 import HeaderSection from "@/components/headerSection/HeaderSection";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
+import { Providers } from "@/components/provider/Provider";
+
 config.autoAddCss = false;
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,11 +37,13 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
-        <HeaderSection />
-        {children}
-        <FooterSection />
+        <Providers>
+          <HeaderSection />
+          {children}
+          <FooterSection />
+        </Providers>
       </body>
     </html>
   );

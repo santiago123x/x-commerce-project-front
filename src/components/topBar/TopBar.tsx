@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMagnifyingGlass
 } from '@fortawesome/free-solid-svg-icons';
+import Image from "next/image";
 
 
 const TopBar = () => {
@@ -11,8 +12,14 @@ const TopBar = () => {
         <div className={styles.top_bar_container}>
 
             {/*Logo*/}
-            <div>
-                <img className={ styles.logo } src="./images/logo.png" alt="Logo"/>
+            <div className={styles.logo_container} style={{ position: 'relative', width: '64px', height: '64px' }}>
+                <Image
+                  src="/images/logo.png"
+                  alt="Logo"
+                  fill
+                  className={styles.logo}
+                  sizes="64px"
+                />
             </div>
 
             {/*Search*/}

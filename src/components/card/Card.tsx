@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { CardProps } from "@/types/interfaces";
 
 const Card: React.FC<CardProps> = ({
@@ -19,14 +20,13 @@ const Card: React.FC<CardProps> = ({
     <div className={`flex flex-col bg-[#f9f9f9] text-[#121212] w-[370px] p-4 shadow-sm rounded min-h-[450px] gap-3 ${
       specialStyle ? "[@media(min-width:880px)_and_(max-width:1320px)]:col-span-2" : ""
     }`}>
-      <div className="flex justify-center items-center h-[180px] overflow-hidden rounded bg-white">
-        <img
-          alt={`${description.slice(0, 10)}${
-            description.length > 10 ? "..." : ""
-          }`}
+      <div className="relative flex justify-center items-center h-[180px] overflow-hidden rounded bg-white">
+        <Image
+          alt={`${description.slice(0, 10)}${description.length > 10 ? "..." : ""}`}
           src={image}
-          loading="lazy"
-          className="w-full h-full object-contain object-center max-w-[200px] max-h-[180px]"
+          fill
+          className="object-contain object-center rounded"
+          sizes="(max-width: 200px) 100vw, 200px"
         />
       </div>
 

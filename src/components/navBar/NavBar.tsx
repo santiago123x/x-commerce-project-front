@@ -5,11 +5,9 @@ import {
   faCartShopping,
   faLocationDot
 } from '@fortawesome/free-solid-svg-icons';
-import { useAppSelector } from "@/lib/hooks";
 import { useRouter } from 'next/navigation'
 
 const NavBar = () => {
-    const cart = useAppSelector((state) => state.cart);
     const router = useRouter()
     return(
         <nav className={styles.nav_bar}>

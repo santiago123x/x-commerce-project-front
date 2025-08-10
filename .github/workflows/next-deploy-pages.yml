@@ -6,8 +6,6 @@ on:
     types:
       - completed
 
-  workflow_dispatch:
-
 permissions:
   contents: read
   pages: write
@@ -72,6 +70,7 @@ jobs:
 
   # Deployment job
   deploy_to_github_pages:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     name: Deploy to Github-Pages
     environment:
       name: github-pages

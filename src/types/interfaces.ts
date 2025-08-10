@@ -15,8 +15,21 @@ interface CardProps {
       categories: string[];
   }
 
+  interface SummaryItem {
+    name: string;
+    price: number;
+    quantity: number;
+  }
+  
+  interface PurchaseSummaryProps {
+    items: SummaryItem[];
+    total: number;
+    onContinue?: () => void;
+  }
 
 export type {
     CardProps,
-    BannerSlide
+    BannerSlide,
+    PurchaseSummaryProps,
+    SummaryItem
 }

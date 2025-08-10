@@ -14,9 +14,9 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    deleteProduct: (state, action) => {
-      //delete
-    },
+    // deleteProduct: (state, action) => {
+    //   //delete
+    // },
     addProduct: (state, action: PayloadAction<CartItemProps>) => {
       const product = action.payload;
       const existingProduct = state.items.find(

@@ -14,7 +14,7 @@ const TopBar = () => {
             {/*Logo*/}
             <div className={styles.logo_container} style={{ position: 'relative', width: '64px', height: '64px' }}>
                 <Image
-                  src="/images/logo.png"
+                  src="./images/logo.png"
                   alt="Logo"
                   fill
                   className={styles.logo}

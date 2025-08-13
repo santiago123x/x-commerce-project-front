@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Card from "@/components/card/Card";
 import products from "@/mocks/products";
-import { CardProps } from "@/types/interfaces";
+import { Product } from "@/types/types";
 
 const CardSection = () => {
   const categories = ["Celulares", "PCs", "Audio", "Accesorios"];
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
-  const [displayProducts, setDisplayProducts] = useState<CardProps[]>([]);
+  const [displayProducts, setDisplayProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     const filtered = products.filter((p) => p.category === currentCategory);
@@ -14,7 +14,7 @@ const CardSection = () => {
     setDisplayProducts(shuffled.slice(0, 3));
   }, [currentCategory]);
 
-  const checkCardWidth = (array: CardProps[], index: number): boolean => {
+  const checkCardWidth = (array: Product[], index: number): boolean => {
     return index === 2 && array.length === 3 ? true : false;
   };
   

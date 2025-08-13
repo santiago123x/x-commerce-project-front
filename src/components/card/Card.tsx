@@ -1,8 +1,12 @@
 import React from "react";
 import Image from "next/image";
-import { CardProps } from "@/types/interfaces";
+import { CardProps } from "@/types/types";
+import { useAppDispatch } from "@/lib/hooks";
+import { addProduct } from "@/lib/features/shoppingCart/cartSlice";
 
 const Card: React.FC<CardProps> = ({
+  id,
+  name,
   description,
   image,
   price,
@@ -10,27 +14,36 @@ const Card: React.FC<CardProps> = ({
   review,
   specialStyle,
 }) => {
+  const dispatch = useAppDispatch();
   const money_symbol: string = "US$";
 
   const renderStars = () => {
-    return "★".repeat(Math.floor(review)) + "☆".repeat(5 - Math.floor(review));
+    const reviewValue = review || 0;
+    return (
+      "★".repeat(Math.floor(reviewValue)) +
+      "☆".repeat(5 - Math.floor(reviewValue))
+    );
   };
 
   return (
-    <div className={`flex flex-col bg-[#f9f9f9] text-[#121212] w-[370px] p-4 shadow-sm rounded min-h-[450px] gap-3 ${
-      specialStyle ? "[@media(min-width:880px)_and_(max-width:1320px)]:col-span-2" : ""
-    }`}>
-      <div className="relative flex justify-center items-center h-[180px] overflow-hidden rounded bg-white">
+    <div
+      className={`flex min-h-[450px] w-[370px] flex-col gap-3 rounded bg-[#f9f9f9] p-4 text-[#121212] shadow-sm ${
+        specialStyle
+          ? "[@media(min-width:880px)_and_(max-width:1320px)]:col-span-2"
+          : ""
+      }`}
+    >
+      <div className="relative flex h-[180px] items-center justify-center overflow-hidden rounded bg-white">
         <Image
           alt={`${description.slice(0, 10)}${description.length > 10 ? "..." : ""}`}
-          src={image}
+          src={image || ""}
           fill
-          className="object-contain object-center rounded"
+          className="rounded object-contain object-center"
           sizes="(max-width: 200px) 100vw, 200px"
         />
       </div>
 
-      <div className="text-base leading-snug h-[60px] overflow-hidden line-clamp-3">
+      <div className="line-clamp-3 h-[60px] overflow-hidden text-base leading-snug">
         <p>{description}</p>
       </div>
 
@@ -39,16 +52,27 @@ const Card: React.FC<CardProps> = ({
         <div className="reviews_bought">{bought} vendidos</div>
       </div>
 
-      <div className="flex items-center gap-1 font-bold text-xl mt-auto">
+      <div className="mt-auto flex items-center gap-1 text-xl font-bold">
         <span>{money_symbol}</span>
         <span>{price.toFixed(2)}</span>
       </div>
 
-      <div className="flex gap-2 mt-2">
-        <button type="button" className="flex-1 py-1 text-lg bg-[#121212] text-white rounded-full border-none cursor-pointer hover:bg-[#2d2d2d]">
+      <div className="mt-2 flex gap-2">
+        <button
+          type="button"
+          className="flex-1 cursor-pointer rounded-full border-none bg-[#121212] py-1 text-lg text-white hover:bg-[#2d2d2d]"
+          onClick={() => {
+            dispatch(
+              addProduct({ id, name, description, image, price, quantity: 1 }),
+            );
+          }}
+        >
           Carrito
         </button>
-        <button type="button" className="flex-1 py-1 text-lg bg-[#ffd814] text-[#121212] rounded-full border-none cursor-pointer hover:bg-[#f9d002]">
+        <button
+          type="button"
+          className="flex-1 cursor-pointer rounded-full border-none bg-[#ffd814] py-1 text-lg text-[#121212] hover:bg-[#f9d002]"
+        >
           Comprar
         </button>
       </div>

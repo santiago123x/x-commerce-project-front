@@ -1,19 +1,20 @@
 "use client";
 import React from "react";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
-import { CartItemProps } from "@/types/types";
+import { CartProduct } from "@/types/types";
 import { addProduct } from "@/lib/features/shoppingCart/cartSlice";
 import CartItem from "@/components/cartItem/cartItem";
 import PurchaseSummary from "@/components/purchaseSummary/PurchaseSummary";
 
 const Cart = () => {
-  const product: CartItemProps = {
-    id: "2",
+  const product: CartProduct = {
+    id: "11",
     name: "Sample2 Product",
     price: 29.99,
     quantity: 1,
     description: "This is a sample product descriptionaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddd.",
     image: "https://m.media-amazon.com/images/I/71uBUqTlx3L.jpg",
+    stock: 10,
   };
 
   const cart = useAppSelector((state) => state.cart);
@@ -31,7 +32,7 @@ const Cart = () => {
               {cart.items.length === 0 ? (
                 <p>Your cart is empty.</p>
               ) : (
-                cart.items.map((item: CartItemProps) => (
+                cart.items.map((item: CartProduct) => (
                   <CartItem key={item.id} {...item} />
                 ))
               )}

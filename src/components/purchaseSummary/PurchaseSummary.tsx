@@ -1,5 +1,5 @@
 import { useAppSelector } from "@/lib/hooks";
-import { CartItemProps } from "@/types/types";
+import { CartProduct } from "@/types/types";
 
 const PurchaseSummary = ({ onContinue }: { onContinue: () => void }) => {
   const cart = useAppSelector((state) => state.cart);
@@ -7,7 +7,7 @@ const PurchaseSummary = ({ onContinue }: { onContinue: () => void }) => {
     <div className="w-full max-w-md rounded-lg border bg-white p-6 shadow">
       <h2 className="mb-2 text-center text-xl font-bold">Resumen de compra</h2>
       <div className="mb-4">
-        {cart.items.map((item: CartItemProps, idx: number) => (
+        {cart.items.map((item: CartProduct, idx: number) => (
           <div key={idx} className="mb-2 flex justify-between">
             <div>
               <span className="text-gray-700">

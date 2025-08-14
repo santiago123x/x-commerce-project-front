@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Cart, CartItemProps } from "@/types/types";
+import { Cart, CartProduct } from "@/types/types";
 
 const initialState: Cart = {
   items: [],
   total: 0,
 };
 
-const calcTotal = (items: CartItemProps[]) => {
+const calcTotal = (items: CartProduct[]) => {
   return items.reduce((total, item) => total + item.price * item.quantity, 0);
 };
 
@@ -17,10 +17,10 @@ const cartSlice = createSlice({
     // deleteProduct: (state, action) => {
     //   //delete
     // },
-    addProduct: (state, action: PayloadAction<CartItemProps>) => {
+    addProduct: (state, action: PayloadAction<CartProduct>) => {
       const product = action.payload;
       const existingProduct = state.items.find(
-        (item: CartItemProps) => item.id === product.id,
+        (item: CartProduct) => item.id === product.id,
       );
       if (existingProduct) {
         existingProduct.quantity += product.quantity;
@@ -36,7 +36,7 @@ const cartSlice = createSlice({
     ) => {
       const { id, quantity } = action.payload;
       const existingProduct = state.items.find(
-        (item: CartItemProps) => item.id === id,
+        (item: CartProduct) => item.id === id,
       );
       if (existingProduct) {
         existingProduct.quantity += quantity;
@@ -49,7 +49,7 @@ const cartSlice = createSlice({
     ) => {
       const { id, quantity } = action.payload;
       const existingProduct = state.items.find(
-        (item: CartItemProps) => item.id === id,
+        (item: CartProduct) => item.id === id,
       );
       if (existingProduct) {
         existingProduct.quantity = Math.max(

@@ -1,14 +1,14 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { CartItemProps } from "@/types/types";
+import { CartProduct } from "@/types/types";
 import { useAppDispatch } from "@/lib/hooks";
 import {
   increaseQuantity,
   decreaseQuantity,
 } from "@/lib/features/shoppingCart/cartSlice";
 
-const CartItem: React.FC<CartItemProps> = ({
+const CartItem: React.FC<CartProduct> = ({
   id,
   name,
   price,

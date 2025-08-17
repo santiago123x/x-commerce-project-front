@@ -5,7 +5,6 @@ const PurchaseSummary = ({ onContinue }: { onContinue: () => void }) => {
   const cart = useAppSelector((state) => state.cart);
   
   const handlePurchase = () => {
-    console.log("BOTON SE TOCOOOOOOO");
     alert(`Compra exitosa... Total de su compra: US$${cart.total.toFixed(2)}`);
     onContinue();
   };

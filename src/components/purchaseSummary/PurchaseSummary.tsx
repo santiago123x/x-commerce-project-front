@@ -3,6 +3,13 @@ import { CartProduct } from "@/types/types";
 
 const PurchaseSummary = ({ onContinue }: { onContinue: () => void }) => {
   const cart = useAppSelector((state) => state.cart);
+  
+  const handlePurchase = () => {
+    console.log("BOTON SE TOCOOOOOOO");
+    alert(`Compra exitosa... Total de su compra: US$${cart.total.toFixed(2)}`);
+    onContinue();
+  };
+
   return (
     <div className="w-full max-w-md rounded-lg border bg-white p-6 shadow">
       <h2 className="mb-2 text-center text-xl font-bold">Resumen de compra</h2>
@@ -42,7 +49,7 @@ const PurchaseSummary = ({ onContinue }: { onContinue: () => void }) => {
       </div>
       <button
         className="mt-4 w-full rounded bg-gray-800 py-2 text-white hover:bg-gray-900"
-        onClick={onContinue}
+        onClick={handlePurchase}
       >
         Continuar compra
       </button>

@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { Provider } from "react-redux";
 import { store, AppStore } from "@/lib/store";
+import { useHydrateCartFromStorage } from "@/hooks/useHydrateCartFromStorage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const makeQueryClient = () =>
@@ -30,8 +31,11 @@ const getQueryClient = () => {
 export function Providers({ children }: { children: React.ReactNode }) {
   const storeRef = useRef<AppStore | null>(null);
   if (!storeRef.current) {
-    storeRef.current = store();
+    storeRef.current = store;
   }
+
+  useHydrateCartFromStorage(storeRef.current);
+
   const queryClient = getQueryClient();
 
   return (

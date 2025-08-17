@@ -26,6 +26,7 @@ const CartItem: React.FC<CartProduct> = ({
             <Image
               src={image}
               alt={name}
+              priority
               fill
               className="object-cover rounded"
               sizes="96px"

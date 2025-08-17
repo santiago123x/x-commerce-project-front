@@ -6,6 +6,7 @@ import { useAppDispatch } from "@/lib/hooks";
 import {
   increaseQuantity,
   decreaseQuantity,
+  deleteProduct,
 } from "@/lib/features/shoppingCart/cartSlice";
 
 const CartItem: React.FC<CartProduct> = ({
@@ -64,7 +65,10 @@ const CartItem: React.FC<CartProduct> = ({
             ? description.slice(0, 50) + "..."
             : description}
         </p>
-        <button className="w-fit rounded border px-2 py-1 text-sm text-gray-700 hover:bg-gray-100 md:w-fit">
+        <button 
+          className="w-fit rounded border px-2 py-1 text-sm text-gray-700 hover:bg-gray-100 md:w-fit"
+          onClick={() => dispatch(deleteProduct({ id }))}
+        >
           Eliminar
         </button>
       </div>

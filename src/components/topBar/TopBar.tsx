@@ -36,7 +36,7 @@ const TopBar = () => {
         <div className="hidden sm:flex flex-row items-center gap-6 w-full">
             <Link href="/" className="relative w-16 h-16 flex-shrink-0 block">
                 <Image
-                    src="/images/logo.png"
+                    src="./images/logo.png"
                     alt="Logo"
                     fill
                     className="object-contain"

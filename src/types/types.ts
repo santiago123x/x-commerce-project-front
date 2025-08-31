@@ -33,4 +33,20 @@ export type PurchaseSummaryProps = {
   onContinue?: () => void;
 };
 
+export type CardCategoryProps = {
+  image: string;
+  title: string;
+  href: string;
+};
+
+export type Category = CardCategoryProps & {
+  id: number;
+};
+
+export type SectionCategoryProps = {
+  title: string;
+  categories: Category[];
+  backgroundColor?: string;
+};
+
 export type CardProps = Product & { specialStyle?: boolean };

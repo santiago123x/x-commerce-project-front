@@ -1,4 +1,3 @@
-import styles from './footer.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faFacebookF,
@@ -11,75 +10,74 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 
+
 const FooterSection = () => {
   return (
-    <div className={styles.footer_container}>
-      <div className={styles.footer}>
-        <div className={styles.container}>
-          
-          <div className={styles.footer_row}>
-            <div className={styles.footer_links}>
-              <h4>Conócenos</h4>
-              <ul>
-                <li><a href="#">Acerca de Nosotros</a></li>
-                <li><a href="#">Empleos</a></li>
-                <li><a href="#">Inversionistas</a></li>
-                <li><a href="#">Desarrolladores</a></li>
-                <li><a href="#">Contactanos</a></li>
+    <div className="bg-[#121212] font-urbanist text-white">
+      <div className="py-10">
+        <div className="max-w-[1200px] mx-auto px-5">
+          <div className="flex flex-wrap justify-center md:justify-between">
+            {/* Conócenos */}
+            <div className="w-full text-center mb-7 md:w-[22%] md:min-w-[200px] md:text-left">
+              <h4 className="text-[20px] mb-4 font-bold">Conócenos</h4>
+              <ul className="list-none p-0 m-0">
+                <li className="mb-2"><a className="text-[15px] transition-all duration-300 hover:text-[#999] hover:pl-1" href="#">Acerca de Nosotros</a></li>
+                <li className="mb-2"><a className="text-[15px] transition-all duration-300 hover:text-[#999] hover:pl-1" href="#">Empleos</a></li>
+                <li className="mb-2"><a className="text-[15px] transition-all duration-300 hover:text-[#999] hover:pl-1" href="#">Inversionistas</a></li>
+                <li className="mb-2"><a className="text-[15px] transition-all duration-300 hover:text-[#999] hover:pl-1" href="#">Desarrolladores</a></li>
+                <li className="mb-2"><a className="text-[15px] transition-all duration-300 hover:text-[#999] hover:pl-1" href="#">Contactanos</a></li>
               </ul>
             </div>
-
-            <div className={styles.footer_links}>
-              <h4>Aliate con nosotros</h4>
-              <ul>
-                <li><a href="#">Vende con X-commerce</a></li>
-                <li><a href="#">Publicita con Nosotros</a></li>
-                <li><a href="#">Anuncia tus Productos</a></li>
-                <li><a href="#">Programa de Afiliados</a></li>
+            {/* Aliate con nosotros */}
+            <div className="w-full text-center mb-7 md:w-[22%] md:min-w-[200px] md:text-left">
+              <h4 className="text-[20px] mb-4 font-bold">Aliate con nosotros</h4>
+              <ul className="list-none p-0 m-0">
+                <li className="mb-2"><a className="text-[15px] transition-all duration-300 hover:text-[#999] hover:pl-1" href="#">Vende con X-commerce</a></li>
+                <li className="mb-2"><a className="text-[15px] transition-all duration-300 hover:text-[#999] hover:pl-1" href="#">Publicita con Nosotros</a></li>
+                <li className="mb-2"><a className="text-[15px] transition-all duration-300 hover:text-[#999] hover:pl-1" href="#">Anuncia tus Productos</a></li>
+                <li className="mb-2"><a className="text-[15px] transition-all duration-300 hover:text-[#999] hover:pl-1" href="#">Programa de Afiliados</a></li>
               </ul>
             </div>
-
-            <div className={styles.footer_links}>
-              <h4>Productos de Pago</h4>
-              <ul>
-                <li><a href="#">Metodos de Pago</a></li>
-                <li><a href="#">Recarga tu Saldo</a></li>
-                <li><a href="#">Anuncia tus Productos</a></li>
-                <li><a href="#">Compra con tus Puntos</a></li>
+            {/* Productos de Pago */}
+            <div className="w-full text-center mb-7 md:w-[22%] md:min-w-[200px] md:text-left">
+              <h4 className="text-[20px] mb-4 font-bold">Productos de Pago</h4>
+              <ul className="list-none p-0 m-0">
+                <li className="mb-2"><a className="text-[15px] transition-all duration-300 hover:text-[#999] hover:pl-1" href="#">Metodos de Pago</a></li>
+                <li className="mb-2"><a className="text-[15px] transition-all duration-300 hover:text-[#999] hover:pl-1" href="#">Recarga tu Saldo</a></li>
+                <li className="mb-2"><a className="text-[15px] transition-all duration-300 hover:text-[#999] hover:pl-1" href="#">Anuncia tus Productos</a></li>
+                <li className="mb-2"><a className="text-[15px] transition-all duration-300 hover:text-[#999] hover:pl-1" href="#">Compra con tus Puntos</a></li>
               </ul>
             </div>
-
-            <div className={styles.footer_links}>
-              <h4>Atencion al Cliente</h4>
-              <ul>
-                <li><a href="#">Atencion al cliente para comerciantes</a></li>
-                <li><a href="#">Centro de ayuda de X-Commerce</a></li>
-                <li><a href="#">Tu cuenta</a></li>
-                <li><a href="#">Tus Pedidos</a></li>
+            {/* Atención al Cliente */}
+            <div className="w-full text-center mb-7 md:w-[22%] md:min-w-[200px] md:text-left">
+              <h4 className="text-[20px] mb-4 font-bold">Atención al Cliente</h4>
+              <ul className="list-none p-0 m-0">
+                <li className="mb-2"><a className="text-[15px] transition-all duration-300 hover:text-[#999] hover:pl-1" href="#">Atención al cliente para comerciantes</a></li>
+                <li className="mb-2"><a className="text-[15px] transition-all duration-300 hover:text-[#999] hover:pl-1" href="#">Centro de ayuda de X-Commerce</a></li>
+                <li className="mb-2"><a className="text-[15px] transition-all duration-300 hover:text-[#999] hover:pl-1" href="#">Tu cuenta</a></li>
+                <li className="mb-2"><a className="text-[15px] transition-all duration-300 hover:text-[#999] hover:pl-1" href="#">Tus Pedidos</a></li>
               </ul>
             </div>
           </div>
-
-          <div className={styles.footer_line}></div>
-
-          <div className={styles.footer_bottom}>
-            <div className={styles.info_links}>
+          {/* Línea divisoria */}
+          <div className="w-full h-px bg-[#2f2f2f] my-2"></div>
+          {/* Footer Bottom */}
+          <div className="flex flex-col items-center justify-center pb-5 gap-4 md:flex-row md:justify-between md:items-center">
+            <div className="flex flex-wrap gap-7 text-[14px] text-white justify-center items-center text-center md:justify-start md:text-left">
               <span>Colombia | Español</span>
-              <span>Términos del servicio</span>
-              <span>Política de privacidad</span>
+              <a href="#" className="hover:text-[#999] transition-colors">Términos del servicio</a>
+              <a href="#" className="hover:text-[#999] transition-colors">Política de privacidad</a>
             </div>
-
-            <div className={styles.social_icons}>
-              <a href="#"><FontAwesomeIcon icon={faFacebookF} /></a>
-              <a href="#"><FontAwesomeIcon icon={faTwitter} /></a>
-              <a href="#"><FontAwesomeIcon icon={faYoutube} /></a>
-              <a href="#"><FontAwesomeIcon icon={faInstagram} /></a>
-              <a href="#"><FontAwesomeIcon icon={faTiktok} /></a>
-              <a href="#"><FontAwesomeIcon icon={faLinkedinIn} /></a>
-              <a href="#"><FontAwesomeIcon icon={faPinterestP} /></a>
+            <div className="flex gap-5 justify-center md:justify-end">
+              <a href="#" className="text-white text-[18px] transition-colors hover:text-[#999]"><FontAwesomeIcon icon={faFacebookF} /></a>
+              <a href="#" className="text-white text-[18px] transition-colors hover:text-[#999]"><FontAwesomeIcon icon={faTwitter} /></a>
+              <a href="#" className="text-white text-[18px] transition-colors hover:text-[#999]"><FontAwesomeIcon icon={faYoutube} /></a>
+              <a href="#" className="text-white text-[18px] transition-colors hover:text-[#999]"><FontAwesomeIcon icon={faInstagram} /></a>
+              <a href="#" className="text-white text-[18px] transition-colors hover:text-[#999]"><FontAwesomeIcon icon={faTiktok} /></a>
+              <a href="#" className="text-white text-[18px] transition-colors hover:text-[#999]"><FontAwesomeIcon icon={faLinkedinIn} /></a>
+              <a href="#" className="text-white text-[18px] transition-colors hover:text-[#999]"><FontAwesomeIcon icon={faPinterestP} /></a>
             </div>
           </div>
-
         </div>
       </div>
     </div>
